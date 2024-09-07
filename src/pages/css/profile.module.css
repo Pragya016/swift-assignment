@@ -1,0 +1,42 @@
+#container {
+    height: 90svh;
+    width: 70svw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+#topContainer {
+    width: 100%;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    color: grey;
+}
+
+#backBtn {
+    box-shadow:0 3px 10px lightgrey;
+}
+
+#username {
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+/* for mobiles */
+@media screen and (max-width: 621px) {
+    #username {
+        font-size: 1.2rem;
+    }
+
+    #container {
+        width: 90svw;
+    }
+
+    #topContainer {
+        margin-top: 1rem;
+    }
+}

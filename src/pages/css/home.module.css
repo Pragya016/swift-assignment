@@ -1,0 +1,40 @@
+#container {
+    height: 90svh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#heading1, #heading2 {
+    color: grey;
+    text-align: center;
+}
+
+#heading2 {
+    margin: 0 0 40px 0;
+}
+
+#profileBtn, #dashboardBtn {
+    width: 120px;
+}
+
+#profileBtn {
+    margin-right: 5px;
+}
+
+/* for tablets and iPads */
+@media screen and (max-width : 768px){
+    #heading1 {
+        width: 75%;
+    }
+}
+
+/* for mobile screen */
+@media screen and (max-width : 480px){
+    #heading1 {
+        width: 100%;
+        font-size: 1.6rem;
+    }
+}

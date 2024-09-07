@@ -1,0 +1,40 @@
+#tableContainer {
+    width: 80%;
+    margin: 0 auto;
+    height: 65vh;
+    overflow: scroll;
+}
+
+#table {
+    border-collapse: collapse;
+    border-color: whitesmoke;
+    width: 100%;
+    height: 100%;
+}
+
+.table_th {
+    padding: 15px;
+    background-color: #C8C8D2;
+    min-width: 100px;
+}
+
+.table_post_id {
+    font-weight: 600;
+    text-align: center;
+    min-width: 10%;
+}
+
+.table_email, .table_name {
+    color: grey;
+    padding: 10px;
+    font-weight: 500;
+    min-width: 20%;
+}
+
+.table_comment {
+    color: grey;
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.8;
+    width: 50%;
+}
