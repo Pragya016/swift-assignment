@@ -22,15 +22,34 @@ export default function SortColumn({ columnKey, label }) {
   //sorting modes: no sort -> ascending -> descending -> no sort
   function toggleSort() { setSortMode((prev) => (prev + 1) % 3); }
 
-  function sortData() {
-    let sortedData = [...dashboardData];
-    if (sortMode === 1) {
-      sortedData.sort((a, b) => a[columnKey].localeCompare(b[columnKey]));
-    } else if (sortMode === 2) {
-      sortedData.sort((a, b) => b[columnKey].localeCompare(a[columnKey]));
-    }
-    setFilteredData(sortMode === 0 ? dashboardData : sortedData);
-  };
+function sortData() {
+  let sortedData = [...dashboardData];
+  
+  if (sortMode === 1) {
+    sortedData.sort((a, b) => {
+      if (typeof a[columnKey] === 'number' && typeof b[columnKey] === 'number') {
+        // for numbers
+        return a[columnKey] - b[columnKey]; 
+      } else {
+        // for strings
+        return a[columnKey].toString().localeCompare(b[columnKey].toString());
+      }
+    });
+  } else if (sortMode === 2) {
+    sortedData.sort((a, b) => {
+      if (typeof a[columnKey] === 'number' && typeof b[columnKey] === 'number') {
+        //for numbers
+        return b[columnKey] - a[columnKey]; 
+      } else {
+        // for strings
+        return b[columnKey].toString().localeCompare(a[columnKey].toString()); 
+      }
+    });
+  }
+
+  setFilteredData(sortMode === 0 ? dashboardData : sortedData);
+}
+
 
   return (
     <div className={styles.sortBtn} onClick={toggleSort}>
