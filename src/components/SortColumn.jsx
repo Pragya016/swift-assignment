@@ -13,24 +13,23 @@ export default function SortColumn({ columnKey, label }) {
     setSortMode(savedSortMode);
   }, [columnKey]);
 
-  // Save sort mode and trigger sorting when sortMode changes
+  // Save sort mode 
   useEffect(() => {
     localStorage.setItem(`${columnKey}SortMode`, sortMode);
     sortData();
   }, [sortMode, dashboardData]);
 
-  // Toggle through sorting modes: no sort -> ascending -> descending -> no sort
-  const toggleSort = () => setSortMode((prev) => (prev + 1) % 3);
+  //sorting modes: no sort -> ascending -> descending -> no sort
+  function toggleSort() { setSortMode((prev) => (prev + 1) % 3); }
 
-  // Sorting logic based on current sort mode
-  const sortData = () => {
+  function sortData() {
     let sortedData = [...dashboardData];
     if (sortMode === 1) {
-      sortedData.sort((a, b) => a[columnKey].localeCompare(b[columnKey])); // Ascending
+      sortedData.sort((a, b) => a[columnKey].localeCompare(b[columnKey]));
     } else if (sortMode === 2) {
-      sortedData.sort((a, b) => b[columnKey].localeCompare(a[columnKey])); // Descending
+      sortedData.sort((a, b) => b[columnKey].localeCompare(a[columnKey]));
     }
-    setFilteredData(sortMode === 0 ? dashboardData : sortedData); // Reset if no sort
+    setFilteredData(sortMode === 0 ? dashboardData : sortedData);
   };
 
   return (
